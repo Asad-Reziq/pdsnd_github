@@ -116,20 +116,25 @@ def station_stats(df):
     print('-' * 40)
 
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
-    print('\nCalculating Trip Duration...\n')
+    """
+    Displays statistics on the total and average trip duration.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing trip data.
+    """
+    print("\nCalculating Trip Duration...\n")
     start_time = time.time()
 
-    # Total travel time
-    total_time = df['Trip Duration'].sum()
-    print(f"Total travel time: {total_time / 3600:.2f} hours")
+    # Calculate total and average travel time
+    total_hours = df['Trip Duration'].sum() / 3600
+    average_minutes = df['Trip Duration'].mean() / 60
 
-    # Average travel time
-    average_time = df['Trip Duration'].mean()
-    print(f"Average travel time: {average_time / 60:.2f} minutes")
+    # Display results
+    print(f"Total travel time: {total_hours:.2f} hours")
+    print(f"Average travel time: {average_minutes:.2f} minutes")
 
-    print(f"\nThis took {time.time() - start_time:.2f} seconds.")
-    print('-' * 40)
+    print(f"\nExecution time: {time.time() - start_time:.2f} seconds.")
+    print("-" * 40)
 
 def user_stats(df, city):
     """Displays statistics on bikeshare users."""
