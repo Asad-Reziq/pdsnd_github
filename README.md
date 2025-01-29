@@ -4,17 +4,17 @@
 29/1/2025
 
 ### **Project Title**
-Bikeshare Data
+*Bikeshare Data*
 
 ### **Description**
-This project analyzes bikeshare usage data from three major US cities: Chicago, New York City, and Washington. The goal is to uncover patterns in bikeshare usage by computing various statistics such as popular travel times, common stations, trip durations, and user demographics.
+*This project analyzes bikeshare usage data from three major US cities: Chicago, New York City, and Washington. The goal is to uncover patterns in bikeshare usage by computing various statistics such as popular travel times, common stations, trip durations, and user demographics.*
 
-The script is interactive, allowing users to filter the data by:
+*The script is interactive, allowing users to filter the data by:*
 
-City: Chicago, New York City, or Washington.
-Month: January through June, or all months.
-Day of the Week: Monday through Sunday, or all days.
-After applying filters, the script displays statistics and can optionally show raw data in chunks of 5 rows.
+*City: Chicago, New York City, or Washington.*
+*Month: January through June, or all months.*
+*Day of the Week: Monday through Sunday, or all days.*
+*After applying filters, the script displays statistics and can optionally show raw data in chunks of 5 rows.*
 
 ### **Files used**
 - bikeshare.py (script file)
