@@ -47,26 +47,36 @@ def get_filters():
 
 def load_data(city, month, day):
     """
-    Loads data for the specified city and filters by month and day if applicable.
+    Loads data for the specified city and applies filters by month and day if applicable.
+
+    Args:
+        city (str): The city name to load data for.
+        month (str): The month to filter by, or "all" for no filter.
+        day (str): The day of the week to filter by, or "all" for no filter.
+
+    Returns:
+        pd.DataFrame: Filtered data for the specified city, month, and day.
     """
-    # Load city data
+    # Load data
     df = pd.read_csv(CITY_DATA[city])
 
-    # Convert Start Time to datetime
+    # Convert Start Time column to datetime and extract time-related features
     df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df = df.assign(
+        month=df['Start Time'].dt.month_name().str.lower(),
+        day_of_week=df['Start Time'].dt.day_name().str.lower(),
+        hour=df['Start Time'].dt.hour
+    )
 
-    # Extract month and day of week from Start Time
-    df['month'] = df['Start Time'].dt.month_name().str.lower()
-    df['day_of_week'] = df['Start Time'].dt.day_name().str.lower()
-    df['hour'] = df['Start Time'].dt.hour
-
-    # Apply month filter
+    # Apply filters
+    filters = []
     if month != 'all':
-        df = df[df['month'] == month]
-
-    # Apply day of week filter
+        filters.append(df['month'] == month)
     if day != 'all':
-        df = df[df['day_of_week'] == day]
+        filters.append(df['day_of_week'] == day)
+    
+    if filters:
+        df = df.loc[np.logical_and.reduce(filters)]
 
     return df
 
