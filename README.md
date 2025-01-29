@@ -22,6 +22,6 @@
 
 
 ### **Credits**
-*This project was completed as part of the Udacity Data Science Nanodegree. The dataset used in this project is provided by Motivate, a bike-share system provider.
-Special thanks to Udacity and the open-source community for the guidance and resources.*
+*This project was completed as part of the Udacity Data Science Nanodegree. The dataset used in this project is provided by Motivate, a bike-share system provider.*
+*Special thanks to Udacity and the open-source community for the guidance and resources (https://www.udacity.com/).*
 
